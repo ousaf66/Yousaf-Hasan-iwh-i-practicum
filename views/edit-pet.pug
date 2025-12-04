@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Edit Pet
+
+    form(action=`/pets/edit/${pet.id}` method="POST")
+      label Pet Name
+      input(type="text" name="pet_name" value=pet.properties.pet_name required)
+      br
+
+      label Pet Type
+      input(type="text" name="pet_type" value=pet.properties.pet_type required)
+      br
+
+      button(type="submit") Save Changes
+
+    br
+    a(href="/") Return to homepage

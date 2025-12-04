@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Pets List
+
+    a(href="/update-cobj") Create New Pet
+    br
+    br
+
+    table(border="1" cellpadding="5")
+      tr
+        th Name
+        th Type
+        th Actions
+      each record in data
+        tr
+          td= record.properties.pet_name || 'N/A'
+          td= record.properties.pet_type || 'N/A'
+          td
+            a(href=`/edit/${record.id}`) Edit
+            form(action=`/delete/${record.id}` method="POST" style="display:inline; margin-left:5px;")
+              button(type="submit" onclick="return confirm('Are you sure?')") Delete

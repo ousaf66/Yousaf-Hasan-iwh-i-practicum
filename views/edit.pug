@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Edit Pet
+
+    a(href="/") Return to the homepage
+    br
+    br
+
+    form(action=`/edit/${record.id}` method="POST")
+      label(for="pet_name") Name:
+      input(type="text" name="pet_name" required value=record.properties.pet_name)
+      br
+      label(for="pet_type") Type:
+      input(type="text" name="pet_type" required value=record.properties.pet_type)
+      br
+      button(type="submit") Save Changes
